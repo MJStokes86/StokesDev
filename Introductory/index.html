@@ -12,13 +12,13 @@
 <h1>Michael J. Stokes</h1>
 </div>
 
-<img src=""/>
 
 <div id = 'showPic'>
 </div>
 
 
 <button id = 'clickAboutMe'>About Me</button>
+<div id ='aboutMe'></div>
 <br> 
 <br>
 <br>
@@ -36,7 +36,7 @@ var $clickMyName = $('#clickMyName')
 var $clickAboutMe = $('#clickAboutMe')
 var $clickContactMe = $('#clickContactMe')
 
-$clickMyName.on('click', function(){
+$clickMyName.one('click', function(){
 	console.log('clicked')
 
 	$.ajax({
@@ -46,8 +46,23 @@ $clickMyName.on('click', function(){
 	}).done(function(){
 		var $showPic = $('#showPic')
 
-		$showPic.append("<img src= ''/>" );
+		$showPic.append("<img src= 'http://i.imgur.com/qliOhvp.jpg' height=300 width = 250/>").hide().fadeIn('slow');
 
+	})
+
+	$clickAboutMe.one('click', function(){
+		console.log('clicked')
+
+		$.ajax({
+			url: '/',
+			type: 'GET',
+			dataType: 'html'
+		}).done(function(){
+			var $aboutMe = $('#aboutMe')
+
+			$aboutMe.append('<h3>I am a Web Developer</h3>').hide().fadeIn('slow')
+
+		})
 	})
 })
 
