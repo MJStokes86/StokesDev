@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset= "UTF-8">
+
+	<title>Intoductory</title>
+</head>
+<body>
+<center>
+
+<div id = 'clickMyName'>
+<h1>Michael J. Stokes</h1>
+</div>
+
+<img src=""/>
+
+<div id = 'showPic'>
+</div>
+
+
+<button id = 'clickAboutMe'>About Me</button>
+<br> 
+<br>
+<br>
+<button id = 'clickContactMe'>Contact Me</button>
+</center>
+
+</body>
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+<script type='application/javascript'>
+console.log('linked')
+$(document).ready(function(){
+
+var $body = document.querySelector('body')
+var $clickMyName = $('#clickMyName')
+var $clickAboutMe = $('#clickAboutMe')
+var $clickContactMe = $('#clickContactMe')
+
+$clickMyName.on('click', function(){
+	console.log('clicked')
+
+	$.ajax({
+		url: "/",
+		type: 'GET',
+		dataType:'html'
+	}).done(function(){
+		var $showPic = $('#showPic')
+
+		$showPic.append("<img src= ''/>" );
+
+	})
+})
+
+
+
+
+
+
+
+
+
+})
+
+	
+
+
+
+</script>
+
+</html>
